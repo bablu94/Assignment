@@ -112,11 +112,11 @@ class TestCase(unittest.TestCase):
             'Authorization': 'Basic %s' % base64.b64encode('bablu:123456')
         }
 
-        data = '{"email":"suryap"}'
+        data = '{"email":"bablu"}'
         response = self.app.post('/api/search', data=data, headers=headers, follow_redirects=True)
 
         self.assertEqual(response.status_code, 400)
-        self.assertEqual('suryap Contact is not present',response.get_data(as_text=True))
+        self.assertEqual('babluk Contact is not present',response.get_data(as_text=True))
         time.sleep(2)
 
     def test_user_g(self):
@@ -131,7 +131,7 @@ class TestCase(unittest.TestCase):
             'Authorization': 'Basic %s' % base64.b64encode('xxxx:123456')
         }
 
-        data = '{"1":{"name" : "Surya Pratap", "email" : "babluk@gmail.com", "mobile" : "7002926956"},"2":{"name":"abc","email":"abc@gmail.com","mobile":"7002926956"}}'
+        data = '{"1":{"name" : "Bablu Kumar", "email" : "babluk@gmail.com", "mobile" : "7002926956"},"2":{"name":"abc","email":"abc@gmail.com","mobile":"7002926956"}}'
 
         response = self.app.post('/api/add', data=data, headers=headers, follow_redirects=True)
 
